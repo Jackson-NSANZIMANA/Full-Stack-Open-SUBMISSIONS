@@ -1,0 +1,4 @@
+packages:
+  - 'anecdotes'
+  - 'courseinfo'
+  - 'unicafe'
