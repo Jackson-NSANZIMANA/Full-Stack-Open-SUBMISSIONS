@@ -1,0 +1,237 @@
+/* ---------------------------------- */
+/* VARIABLES & THEME */
+/* ---------------------------------- */
+:root {
+  --primary: #4f46e5;        /* deep indigo */
+  --primary-light: #6366f1;
+  --secondary: #f59e0b;      /* amber highlight */
+  --bg: #f9fafb;             /* soft neutral background */
+  --card-bg: #ffffff;         /* cards & panels */
+  --text: #111827;           /* main text */
+  --subtext: #6b7280;        /* secondary text */
+  --border-radius: 12px;
+  --shadow: rgba(0,0,0,0.1);
+  --transition: 0.3s ease;
+}
+
+/* ---------------------------------- */
+/* GLOBAL RESET & TYPOGRAPHY */
+/* ---------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+p {
+  color: var(--subtext);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--primary-light);
+}
+
+/* ---------------------------------- */
+/* APP LAYOUT */
+/* ---------------------------------- */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+footer {
+  background: #e0e7ff;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* ---------------------------------- */
+/* SEARCH INPUT */
+/* ---------------------------------- */
+.search input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--primary-light);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  outline: none;
+  transition: all var(--transition);
+}
+
+.search input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 10px var(--primary-light);
+}
+
+/* ---------------------------------- */
+/* COUNTRY LIST */
+/* ---------------------------------- */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+li {
+  background: var(--card-bg);
+  padding: 1rem 1.25rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+li button {
+  padding: 0.35rem 0.7rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background var(--transition), transform var(--transition);
+}
+
+li button:hover {
+  background: var(--primary-light);
+  transform: scale(1.05);
+}
+
+/* ---------------------------------- */
+/* COUNTRY DETAILS CARD */
+/* ---------------------------------- */
+.country-details {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.country-details:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.country-details img {
+  margin-top: 1rem;
+  max-width: 300px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Languages list */
+.country-details ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+/* ---------------------------------- */
+/* WEATHER CARD */
+/* ---------------------------------- */
+.weather {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #fff;
+  display: inline-block;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-align: center;
+}
+
+.weather img {
+  margin-top: 0.5rem;
+}
+
+.weather:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+
+/* Weather text */
+.weather p {
+  margin: 0.3rem 0;
+  font-weight: 500;
+}
+
+/* ---------------------------------- */
+/* RESPONSIVE DESIGN */
+/* ---------------------------------- */
+@media (max-width: 768px) {
+  .country-details img {
+    max-width: 100%;
+  }
+
+  .search input {
+    width: 100%;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  li button {
+    align-self: flex-end;
+  }
+}
+
+/* ---------------------------------- */
+/* SMOOTH TRANSITIONS FOR ALL INTERACTIONS */
+* {
+  transition: all var(--transition);
+}
